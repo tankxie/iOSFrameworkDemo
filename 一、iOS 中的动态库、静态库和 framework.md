@@ -8,6 +8,7 @@
 
 本文示例 [GitHub地址](https://github.com/tankxie/iOSFrameworkDemo)。
 ## 1. 基本认识
+> 1.1 和 1.2 摘自 [iOS 静态库，动态库与 Framework](https://skyline75489.github.io/post/2015-8-14_ios_static_dynamic_framework_learning.html)。
 
 ### 1.1 什么是库
 
@@ -31,7 +32,6 @@
 
 静态库的好处很明显，编译完成之后，库文件实际上就没有作用了。目标程序没有外部依赖，直接就可以运行。当然其缺点也很明显，就是会使用目标程序的体积增大。
 
-
 #### 动态库
 
 动态库即动态链接库（Windows 下的 .dll，Linux 下的 .so，Mac 下的 .dylib/.tbd）。与静态库相反，动态库在编译时并不会被拷贝到目标程序中，目标程序中只会存储指向动态库的引用。等到程序运行时，动态库才会被真正加载进来。
@@ -44,7 +44,9 @@
 
 Framework 实际上是一种打包方式，将库的二进制文件，头文件和有关的资源文件打包到一起，方便管理和分发，和静态库动态库的本质是没有什么关系。
 
-在 iOS 8 之前，iOS 平台不支持使用动态 Framework，开发者可以使用的 Framework 只有苹果自家的 UIKit.Framework，Foundation.Framework 等。这种限制可能是出于安全的考虑（[见这里的讨论](https://stackoverflow.com/questions/4733847/can-you-build-dynamic-libraries-for-ios-and-load-them-at-runtime))。换一个角度讲，因为 iOS 应用都是运行在沙盒当中，不同的程序之间不能共享代码，同时动态下载代码又是被苹果明令禁止的，没办法发挥出动态库的优势，实际上动态库也就没有存在的必要了。
+在 iOS 8 之前，iOS 平台不支持使用动态 Framework，开发者可以使用的 Framework 只有苹果自家的 UIKit.Framework，Foundation.Framework 等。这种限制可能是出于安全的考虑（[见这里的讨论](https://stackoverflow.com/questions/4733847/can-you-build-dynamic-libraries-for-ios-and-load-them-at-runtime))。
+
+换一个角度讲，因为 iOS 应用都是运行在沙盒当中，不同的程序之间不能共享代码，同时动态下载代码又是被苹果明令禁止的，没办法发挥出动态库的优势，实际上动态库也就没有存在的必要了。
 
 由于上面提到的限制，开发者想要在 iOS 平台共享代码，唯一的选择就是打包成静态库 .a 文件，同时附上头文件（例如微信的SDK）。但是这样的打包方式不够方便，使用时也比较麻烦，大家还是希望共享代码都能能像 Framework 一样，直接扔到工程里就可以用。于是人们想出了各种奇技淫巧去让 Xcode Build 出 iOS 可以使用的 Framework，具体做法参考这里和这里，这种方法产生的 Framework 还有 “伪”(Fake) Framework 和 “真”(Real) Framework 的区别。
 
@@ -52,36 +54,22 @@ Framework 实际上是一种打包方式，将库的二进制文件，头文件�
 
 * * *
 
-
 iOS 8/Xcode 6 推出之后，iOS 平台添加了动态库的支持，同时 Xcode 6 也原生自带了 Framework 支持（动态和静态都可以），上面提到的的奇技淫巧也就没有必要了（新的做法参考[这里](http://www.cocoachina.com/ios/20141126/10322.html)）。
 
 为什么 iOS 8 要添加动态库的支持？唯一的理由大概就是 Extension 的出现。Extension 和 App 是两个分开的可执行文件，同时需要共享代码，这种情况下动态库的支持就是必不可少的了。但是这种动态 Framework 和系统的 UIKit.Framework 还是有很大区别。系统的 Framework 不需要拷贝到目标程序中，我们自己做出来的 Framework 哪怕是动态的，最后也还是要拷贝到 App 中（App 和 Extension 的 Bundle 是共享的），因此苹果又把这种 Framework 称为 `Embedded Framework`。
 
-
 ### 1.3 iOS 系统下动态库的作用
 
-从上一节的内容我们可以总结出，动态库有两大作用：
+从上面的内容我们可以总结出，动态库有两大作用：
 
 - 应用插件化，即我们可以在运行时随意替换
 - 共享可执行文件，多个程序共享一份
 
-但是，在 iOS 系统的`签名机制`和`沙盒机制`限制下，我们自制的 framework ，并不能实现插件化和不同APP间共享。
+但是，在 iOS 系统的`签名机制`和`沙盒机制`限制下，我们`自制的动态库` ，并不能实现插件化和不同APP间共享。
 
 凉凉？
 
-那么，动态库的意义何在？
-
-一切从 `ERROR ITMS-90122` 说起。
-
-### 1.4 说明
-
-至此，我们对 iOS 平台下的静态库、动态库 和 framework 有了一个基本的定义。
-
-我们需要对后文中使用的一些概念进行范围界定:
-
-- 后文讨论都是基于 iOS 系统
-- 静态库：特指 framework 形式的静态库，不含 .a 
-- 动态库：特指 `Embedded Framework`，除了特殊说明外，不含系统真正的动态库
+那么，动态库的意义何在？相比于静态库的优势在哪儿？后面有文章详细讲解。
 
 ## 2. Xcode 中手动创建静态和动态的 framework
 
@@ -264,3 +252,6 @@ dyld: Library not loaded: @rpath/DynamicFramework.framework/DynamicFramework
 [iOS 静态库，动态库与 Framework](https://skyline75489.github.io/post/2015-8-14_ios_static_dynamic_framework_learning.html)
 [iOS动态库、静态库及使用场景、方式
 ](http://weslyxl.coding.me/2018/03/15/2018/3/iOS%E5%8A%A8%E6%80%81%E5%BA%93%E3%80%81%E9%9D%99%E6%80%81%E5%BA%93%E5%8F%8A%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF%E3%80%81%E6%96%B9%E5%BC%8F/)
+
+
+
