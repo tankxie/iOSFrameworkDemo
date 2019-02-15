@@ -14,19 +14,19 @@
 		5FA8B0DF221584DB00EE9F33 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5FA8B0DD221584DB00EE9F33 /* LaunchScreen.storyboard */; };
 		5FA8B0E2221584DB00EE9F33 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 5FA8B0E1221584DB00EE9F33 /* main.m */; };
 		5FA8B0E9221584E500EE9F33 /* StaticFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B0E8221584E500EE9F33 /* StaticFramework.framework */; };
-		5FA8B0EB221587A500EE9F33 /* DynamicFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B0EA221587A500EE9F33 /* DynamicFramework.framework */; };
-		5FA8B0EC2215890C00EE9F33 /* DynamicFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B0EA221587A500EE9F33 /* DynamicFramework.framework */; };
-		5FA8B0ED2215890C00EE9F33 /* DynamicFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B0EA221587A500EE9F33 /* DynamicFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5FA8B10722165C4400EE9F33 /* EmbeddedFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B10622165C4400EE9F33 /* EmbeddedFramework.framework */; };
+		5FA8B10A2216852900EE9F33 /* EmbeddedFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B10622165C4400EE9F33 /* EmbeddedFramework.framework */; };
+		5FA8B10B2216852900EE9F33 /* EmbeddedFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 5FA8B10622165C4400EE9F33 /* EmbeddedFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		5FA8B0EE2215890D00EE9F33 /* Embed Frameworks */ = {
+		5FA8B10C2216852900EE9F33 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				5FA8B0ED2215890C00EE9F33 /* DynamicFramework.framework in Embed Frameworks */,
+				5FA8B10B2216852900EE9F33 /* EmbeddedFramework.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -45,7 +45,7 @@
 		5FA8B0E0221584DB00EE9F33 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5FA8B0E1221584DB00EE9F33 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		5FA8B0E8221584E500EE9F33 /* StaticFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = StaticFramework.framework; sourceTree = "<group>"; };
-		5FA8B0EA221587A500EE9F33 /* DynamicFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = DynamicFramework.framework; sourceTree = "<group>"; };
+		5FA8B10622165C4400EE9F33 /* EmbeddedFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = EmbeddedFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,8 +54,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5FA8B0E9221584E500EE9F33 /* StaticFramework.framework in Frameworks */,
-				5FA8B0EC2215890C00EE9F33 /* DynamicFramework.framework in Frameworks */,
-				5FA8B0EB221587A500EE9F33 /* DynamicFramework.framework in Frameworks */,
+				5FA8B10722165C4400EE9F33 /* EmbeddedFramework.framework in Frameworks */,
+				5FA8B10A2216852900EE9F33 /* EmbeddedFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -85,7 +85,7 @@
 				5FA8B0D3221584D900EE9F33 /* AppDelegate.m */,
 				5FA8B0D5221584D900EE9F33 /* ViewController.h */,
 				5FA8B0D6221584D900EE9F33 /* ViewController.m */,
-				5FA8B0EA221587A500EE9F33 /* DynamicFramework.framework */,
+				5FA8B10622165C4400EE9F33 /* EmbeddedFramework.framework */,
 				5FA8B0E8221584E500EE9F33 /* StaticFramework.framework */,
 				5FA8B0D8221584D900EE9F33 /* Main.storyboard */,
 				5FA8B0DB221584DB00EE9F33 /* Assets.xcassets */,
@@ -106,7 +106,7 @@
 				5FA8B0CB221584D900EE9F33 /* Sources */,
 				5FA8B0CC221584D900EE9F33 /* Frameworks */,
 				5FA8B0CD221584D900EE9F33 /* Resources */,
-				5FA8B0EE2215890D00EE9F33 /* Embed Frameworks */,
+				5FA8B10C2216852900EE9F33 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

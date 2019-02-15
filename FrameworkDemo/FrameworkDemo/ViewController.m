@@ -8,7 +8,7 @@
 
 #import "ViewController.h"
 #import <StaticFramework/StaticFramework.h>
-#import <DynamicFramework/DynamicFramework.h>
+#import <EmbeddedFramework/EmbeddedFramework.h>
 
 @interface ViewController ()
 
@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     [[StaticFramework new] log];
-    [[DynamicFramework new] log];
+    [[EmbeddedFramework new] log];
 }
 
 

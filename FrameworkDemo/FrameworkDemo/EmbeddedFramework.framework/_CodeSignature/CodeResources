@@ -4,33 +4,33 @@
 <dict>
 	<key>files</key>
 	<dict>
-		<key>Headers/DynamicFramework.h</key>
+		<key>Headers/EmbeddedFramework.h</key>
 		<data>
-		TCAuaiHKGkkF0RSB2dyrN9ATq9M=
+		1TSr2jmIx4evUC8LHLTsnqCrE+4=
 		</data>
 		<key>Info.plist</key>
 		<data>
-		6jJUr5zxvPVg7SfqYwY3H1MqYWQ=
+		DHNbzVRaNtxfvjb3IdTFHgG8uLY=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
-		/5Uw3mYUqzJEq+36Bq9/Xho03YM=
+		jYhUHVPaLEbdkno3vVvZny3rC8k=
 		</data>
 	</dict>
 	<key>files2</key>
 	<dict>
-		<key>Headers/DynamicFramework.h</key>
+		<key>Headers/EmbeddedFramework.h</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			NzRYll5wvhpZvL52lNQRh90Fruk4x8qzzSmCZ8Ome+s=
+			LEZ+3spSfUTZ9/Ec6L7yKKMnTfOp11dGmi7/+g+bnlM=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			Zfpp9QMS/LJZiLZ8VMCWjanE16jYBd+c3tP2ZRNk03g=
+			/ojQN7Wep+cqiEYr2O9zf7/TT0I/7Xm5X1aGrqG8BG4=
 			</data>
 		</dict>
 	</dict>
